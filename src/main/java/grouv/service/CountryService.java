@@ -4,6 +4,7 @@ import grouv.entity.Country;
 import grouv.repository.CountryRepo;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,9 +22,13 @@ public class CountryService {
         }
         return countries;
     }
-
-    public Country getCountry(String id) {
-        return countryRepo.findById(id).get();
+    
+    public Country getRandomCountry() {
+        List<Country> countries = getAllCountries();
+        Random rand = new Random();
+        int pick = rand.nextInt(239);
+        Country question = countries.get(pick);
+        return question;
     }
 
     
