@@ -15,6 +15,7 @@ public class CountryService {
     @Autowired
     private CountryRepo countryRepo;
 
+    //saves the contents of the Iterable findAll() method to a List.
     public List<Country> getAllCountries() {
         List<Country> countries = new ArrayList();
         for (Country c : countryRepo.findAll()) {
@@ -23,6 +24,7 @@ public class CountryService {
         return countries;
     }
     
+    //selects a random Country object from the previous List.
     public Country getRandomCountry() {
         List<Country> countries = getAllCountries();
         Random rand = new Random();
